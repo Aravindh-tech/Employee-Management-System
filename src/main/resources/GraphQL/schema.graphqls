@@ -1,0 +1,47 @@
+type EmployeeEntity{
+    empId:ID,
+    empName:String,
+    empEmail:String,
+    empPassword:String,
+    empSalary:Float,
+    department:String,
+    empAddress:String,
+    active:Boolean
+
+    createdDate: String
+    createdBy: String
+    lastModifiedDate: String
+    lastModifiedBy: String
+}
+
+type Query{
+    getEmployeeDetails:[EmployeeEntity]
+    getEmployeeById(empId:ID!):EmployeeEntity
+}
+
+input addEmployee{
+    empName:String,
+    empEmail:String,
+    empPassword:String,
+    empSalary:Float,
+    department:String,
+    empAddress:String,
+    active:Boolean
+}
+
+type Mutation{
+    createEmpData(employee: addEmployee):String
+
+    updateEmpData(empId:ID!,employee: addEmployee):EmployeeEntity
+
+    deleteEmpData(empId:ID!):EmployeeEntity
+
+    softDelete(empId:ID!):EmployeeEntity
+
+    restoreEmployee(empId:ID!):String
+
+
+}
+
+
+
