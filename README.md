@@ -32,10 +32,21 @@ A secure, backend-focused Employee Management System developed using **Java, Spr
 
 ### Data Management
 
-- Automatic JPA auditing using `createdAt`, `updatedAt`, `createdBy`, and `updatedBy`
-- PostgreSQL JSONB for additional employee information
-- Native SQL queries for dynamic filtering and searching
-- Duplicate email validation
+## 🔐 Authentication & JPA Auditing
+
+The application uses JWT-based authentication with Spring Security
+to identify authenticated users.
+
+JPA Auditing automatically tracks employee creation and modification
+details using the authenticated user's ID.
+
+- `@CreatedDate`: Records employee creation time.
+- `@LastModifiedDate`: Tracks the latest modification time.
+- `@CreatedBy`: Records the user who created the employee.
+- `@LastModifiedBy`: Records the user who last modified the employee.
+
+The `AuditorAware` implementation retrieves the authenticated
+user's ID from the Spring Security context.
 
 ### API & Notifications
 
