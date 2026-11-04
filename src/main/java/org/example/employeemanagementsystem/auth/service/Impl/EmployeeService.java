@@ -197,20 +197,27 @@ public class EmployeeService implements ServiceInterface {
     }
 
     @Override
-    public String restoreEmployee(Long empId){
-        EmployeeEntity employeeEntity = repository.findById(empId).orElseThrow(
-                ()-> new EmployeeNotFoundException("Employee not found")
-        );
+    public String restoreEmployee(Long empId) {
 
-        if (employeeEntity.isActive()){
+        EmployeeEntity employeeEntity = repository.findById(empId)
+                .orElseThrow(() ->
+                        new EmployeeNotFoundException("Employee not found")
+                );
+
+        if (employeeEntity.isActive()) {
             return "Employee is already active";
         }
 
         employeeEntity.setActive(true);
-        Long owner = Long.parseLong(String.valueOf(auditorAware.getCurrentAuditor()));
+
+        Long owner = auditorAware.getCurrentAuditor()
+                .orElseThrow(() ->
+                        new RuntimeException("Auditor not found")
+                );
+
         employeeEntity.setLastModifiedBy(owner);
 
-        String body = "Good news! " + employeeEntity + "\n" + " Your account is recovered ";
+        String body = "Good news! Your account has been recovered successfully.";
 
         emailService.sendMail(
                 employeeEntity.getEmpEmail(),

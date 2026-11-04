@@ -50,7 +50,7 @@ public class EmployeeController {
         return service.getEmployeeById(empId);
     }
 
-    @GetMapping("/{empId}/additional-details")
+    @GetMapping("/additional-details/{empId}")
     public JsonNode getEmployeeAdditionalInfo(@PathVariable Long empId){
         return service.getEmployeeAdditionalInfo(empId);
     }
