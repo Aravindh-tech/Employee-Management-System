@@ -179,7 +179,7 @@ MAIL_USERNAME=your_email@gmail.com
 MAIL_PASSWORD=your_gmail_app_password
 ```
 
-Configure these variables in your local environment or IDE run configuration. **Do not commit real credentials or secrets to GitHub.**
+Configure these variables in your local environment or IDE run configuration.
 
 ### 3. Run the application
 
@@ -203,7 +203,7 @@ http://localhost:8080
 
 ## 📸 Screenshots
 
-Add screenshots of the application or Postman responses to a `screenshots/` folder and reference them here.
+Add screenshots of the Postman responses to a `screenshots/` folder and reference them here.
 
 Example:
 
@@ -211,7 +211,6 @@ Example:
 ![Employee API Response](screenshots/employee-response.png)
 ```
 
-Before publishing screenshots, hide JWT tokens, passwords, database credentials, and personal data.
 
 ## 👨‍💻 Author
 
