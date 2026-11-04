@@ -26,7 +26,7 @@ public class SecurityConfig {
 
         http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth ->
-                        auth.requestMatchers("/api/auth/**","/api/users/add-user").permitAll().anyRequest().authenticated())
+                        auth.requestMatchers("/api/auth/**","/api/users/add-user","/api/company/add").permitAll().anyRequest().authenticated())
                 .exceptionHandling(ex -> ex.authenticationEntryPoint(point))
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
         http.addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class);
