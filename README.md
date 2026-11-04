@@ -158,6 +158,13 @@ The project supports testing of:
 - GraphQL queries and mutations
 - Email notifications
 
+# Employee Management System — API Documentation
+
+## Base URL
+
+```text
+http://localhost:8080
+
 ## 👨‍💻 Author
 
 **Aravindhan P**
